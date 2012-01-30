@@ -1,0 +1,13 @@
+<html>
+	<script>
+		chrome.extension.onRequest.addListener(
+			function(request, sender, sendResponse) {
+				sendResponse({
+					"autorun" : localStorage["autorun"],
+					"startAtFirstImage" : localStorage["start-slideshow-at-first"],
+					"slideTime" : localStorage["slideshow-slide-time"],
+					"preloadImages" : localStorage["preload-images"],
+				});
+			});
+	</script>
+</html>

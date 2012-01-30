@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://flickrgalleryplus/skin/flickrGalleryPlus.css" type="text/css"?> 
+<!DOCTYPE flickrgalleryplus SYSTEM "chrome://flickrgalleryplus/locale/flickrGalleryPlus.dtd">
+<overlay id="sample" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+		<script src="flickrGalleryPlus.js" />
+		
+		<statusbar id="status-bar">
+			<statusbarpanel id="flickrGalleryPlus-status-bar" class="statusbarpanel-iconic" src="chrome://flickrgalleryplus/skin/status-bar-disabled.png" tooltiptext="&runflickrGalleryPlus;" onclick="flickrGalleryPlusWrapper.onStatusbarButtonCommand(event);"/>
+			<statusbarpanel id="flickrGalleryPlus-status-bar-preloading-text">Preloading:</statusbarpanel>
+			<progressmeter id="flickrGalleryPlus-preloading-progress-bar" mode="determined" value="0"/>
+		</statusbar>
+</overlay>

@@ -1,0 +1,74 @@
+#TopBar .Header {
+	width: 1000px;
+}
+
+#Main {
+	width: 1000px;
+}
+
+#ViewSet {
+	width: 1000px;
+}
+
+#ViewSet .vsDetails {
+	width: 500px;
+}
+
+#primary_photo_img {
+	height: 375px;
+}
+
+#flickrGalleryPlusLoadingImage {
+	position : absolute;
+	left : 48%;
+	top : 300px;
+	width: 32px;
+	height: 32px;
+	background : #fff url(loading.gif) no-repeat center center;
+	padding : 10px 5px;
+	border : 1px solid #333;
+}
+
+.flickrGalleryPlus-selected {
+	outline: 2px solid #ff0084;
+}
+
+#flickrGalleryPlusControlSlideshow {
+	cursor: pointer;
+	background: url(play-slideshow.png) no-repeat;
+	padding: 0 5px 0 20px;
+}
+
+#flickrGalleryPlusControlSlideshow:hover {
+	color: #0063dc;
+	text-decoration: underline;
+}
+
+#flickrGalleryPlusControlSlideshow.stop-slideshow {
+	cursor: pointer;
+	background: url(stop-slideshow.png) no-repeat;
+	padding: 0 5px 0 20px;
+}
+
+
+/* XUL styles */
+#flickrGalleryPlus-status-bar {
+	width: 16px;
+	margin: 0 5px;
+}
+
+#flickrGalleryPlus-status-bar-preloading-text {
+	display: none;
+}
+
+#flickrGalleryPlus-status-bar-preloading-text.loading {
+	display: block;
+}
+
+#flickrGalleryPlus-preloading-progress-bar {
+	display: none;
+}
+
+#flickrGalleryPlus-preloading-progress-bar.loading {
+	display: block;
+}

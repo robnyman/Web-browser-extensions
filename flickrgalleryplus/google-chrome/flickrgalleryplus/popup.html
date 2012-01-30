@@ -1,0 +1,101 @@
+<html>
+	<title>Flickr Gallery Plus options</title>
+	<style>
+		#container {
+			width: 300px;
+			margin: 0 auto;
+		}
+	
+		body {
+			font: 13px Arial, sans-serif;
+		}
+		
+		label {
+			font-weight: bold;
+		}
+		
+		label.block {
+			display: block;
+		}
+		
+		input[type=radio] {
+			margin-right: 5px;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var elms = document.getElementsByTagName("input");
+			for (var i=0, il=elms.length, elm, type, id, storageVal; i<il; i++) {
+				elm = elms[i];
+				type = elm.type;
+				if (/checkbox|radio/.test(type)) {					
+					id = elm.id.replace(/\-\d+/, "");
+					storageVal = localStorage[id];
+					if (typeof storageVal !== "undefined") {
+						if (type === "checkbox") {
+							document.getElementById(id).checked = (storageVal === "true")? true : false;
+						}
+						else {
+							document.getElementById(id + "-" + storageVal).checked = true;
+						}
+					}
+				}
+			};
+			
+			window.onclick = function (evt) {
+				var target = evt.target;
+				if (/checkbox|radio/.test(target.type)) {
+					var targetId = target.id,
+						isSlideTime = /slideshow\-slide\-time/.test(targetId),
+						targetName = (isSlideTime)? "slideshow-slide-time" : target.id,
+						targetVal = (isSlideTime)? target.value : target.checked;
+					localStorage[targetName] = targetVal;
+				}
+			};
+		};
+		
+		function goToFlickr () {
+			chrome.tabs.create({
+				url: "http://flickr.com"
+			});
+		}
+	</script>
+	
+	<body>
+		
+		<div id="container">
+			<p>
+				<input type="checkbox" id="autorun" checked="checked">
+				<label for="autorun">Autorun</label>
+			</p>	
+
+			<p>
+				<input type="checkbox" id="start-slideshow-at-first" checked="checked">
+				<label for="start-slideshow-at-first">Always start slideshow at first image</label>
+			</p>	
+
+			<p>
+				<label for="slideshow-slide-time-2000" class="block">Slideshow time for each slide</label>
+				<input type="radio"	id="slideshow-slide-time-2000" name="slideshow-slide-time" value="2000">
+				<label for="slideshow-slide-time-2000">1 second</label>
+
+				<input type="radio"	id="slideshow-slide-time-4000" name="slideshow-slide-time" value="4000" checked="checked">
+				<label for="slideshow-slide-time-4000">3 seconds</label>
+
+				<input type="radio"	id="slideshow-slide-time-6000" name="slideshow-slide-time" value="6000">
+				<label for="slideshow-slide-time-6000">5 seconds</label>
+			</p>
+
+			<p>
+				<input type="checkbox" id="preload-images" checked="checked">
+				<label for="preload-images">Preload images</label>
+			</p>
+			
+			<p>
+				<a href="http://www.flickr.com/" onclick="goToFlickr()">Go to Flickr</a>
+			</p>
+			
+		</div>
+		
+	</body>
+</html>
