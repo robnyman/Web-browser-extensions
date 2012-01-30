@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/DTD/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>PictureSlides demo</title>
+	<link rel="stylesheet" href="css/picture-slides.css" type="text/css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/PictureSlides-jquery-2.0.js"></script>
+	<script type="text/javascript">
+		jQuery.PictureSlides.set({
+			// Switches to decide what features to use
+			useFadingIn : true,
+			useFadingOut : true,
+			useFadeWhenNotSlideshow : true,
+			useFadeForSlideshow : true,
+			useDimBackgroundForSlideshow : true,
+			loopSlideshow : false,
+			usePreloading : true,
+			useAltAsTooltip : true,
+			useTextAsTooltip : false,
+			
+			// Fading settings
+			fadeTime : 500, // Milliseconds	
+			timeForSlideInSlideshow : 2000, // Milliseconds
+
+			// At page load
+			startIndex : 1,	
+			startSlideShowFromBeginning : true,
+			startSlideshowAtLoad : false,
+			dimBackgroundAtLoad : false,
+
+			// Large images to use and thumbnail settings
+			images : [
+				{
+					image : "pictures/1.jpg", 
+					alt : "Picture 1",
+					text : "This is picture 1"
+				},
+				{                                  
+					image : "pictures/2.jpg", 
+					alt : "Picture 2",
+					text : "This is picture 2"
+				},
+				{                                  
+					
+					image : "pictures/3.jpg", 
+					alt : "Picture 3",
+					text : "This is picture 3",
+					url : "http://456bereastreet.com"
+				},
+				{                                  
+					
+					image : "pictures/4.jpg", 
+					alt : "Picture 4",
+					text : "This is picture 4",
+					url : "http://mozilla.com"
+				},
+				{                                  
+					
+					image : "pictures/5.jpg", 
+					alt : "Picture 5",
+					text : "This is picture 5"
+				},
+				{                                  
+					
+					image : "pictures/6.jpg", 
+					alt : "Picture 6",
+					text : "This is picture 6"
+				},
+				{                                  
+					
+					image : "pictures/7.jpg", 
+					alt : "Picture 7",
+					text : "This is picture 7"
+				},
+				{                                  
+					
+					image : "pictures/8.jpg", 
+					alt : "Picture 8",
+					text : "This is picture 8"
+				}
+			],
+			thumbnailActivationEvent : "click",
+
+			// Classes of HTML elements to use
+			mainImageClass : "picture-slides-image", // Mandatory
+			mainImageFailedToLoadClass : "picture-slides-image-load-fail",
+			imageLinkClass : "picture-slides-image-link",
+			fadeContainerClass : "picture-slides-fade-container",
+			imageTextContainerClass : "picture-slides-image-text",
+			previousLinkClass : "picture-slides-previous-image",
+			nextLinkClass : "picture-slides-next-image",
+			imageCounterClass : "picture-slides-image-counter",
+			startSlideShowClass : "picture-slides-start-slideshow",
+			stopSlideShowClass : "picture-slides-stop-slideshow",
+			thumbnailContainerClass: "picture-slides-thumbnails",
+			dimBackgroundOverlayClass : "picture-slides-dim-overlay"
+		});
+	</script>
+</head>
+
+<body>
+	
+	<div id="container">
+
+		<h1>PictureSlides</h1>
+		<h2>Picture gallery</h2>
+		<p>
+			<a href="http://pictureslides.googlecode.com/files/picture-slides-gallery-demo.zip">Download this demo</a>
+		</p>
+		
+		
+		<div class="picture-slides-container">
+			<div class="picture-slides-fade-container">
+				<a class="picture-slides-image-link">
+					<span class="picture-slides-image-load-fail">The image failed to load:</span>
+					<img class="picture-slides-image" src="pictures/1.jpg" alt="This is picture 1" />
+				</a>
+			</div>
+			
+			<div class="picture-slides-image-text">This is picture 1</div>
+		
+			<div class="navigation-controls">
+				<a href="index.html" class="picture-slides-previous-image">Previous</a>
+				<span class="picture-slides-image-counter"></span>
+				<a href="index.html" class="picture-slides-next-image">Next</a>
+		
+				<a href="index.html" class="picture-slides-start-slideshow">Start slideshow</a>
+				<a href="index.html" class="picture-slides-stop-slideshow">Stop slideshow</a>
+			</div>
+			
+			<ul class="picture-slides-thumbnails">
+				<li><a href="pictures/1.jpg"><img src="thumbnails/1.jpg" alt="" /></a></li>
+				<li><a href="pictures/2.jpg"><img src="thumbnails/2.jpg" alt="" /></a></li>
+				<li><a href="pictures/3.jpg"><img src="thumbnails/3.jpg" alt="" /></a></li>
+				<li><a href="pictures/4.jpg"><img src="thumbnails/4.jpg" alt="" /></a></li>
+				<li><a href="pictures/5.jpg"><img src="thumbnails/5.jpg" alt="" /></a></li>
+				<li><a href="pictures/6.jpg"><img src="thumbnails/6.jpg" alt="" /></a></li>
+				<li><a href="pictures/7.jpg"><img src="thumbnails/7.jpg" alt="" /></a></li>
+				<li><a href="pictures/8.jpg"><img src="thumbnails/8.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="picture-slides-dim-overlay"></div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/DTD/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>PictureSlides - Photo slideshows and galleries - DOMAssistant and jQuery plugin</title>
+	<style type="text/css">
+		@import url("css/pictureslides.css");
+	</style>
+</head>
+
+<body>
+	
+	<div id="container">
+		<div id="inner-container">
+			<div id="main-content">
+				<h1>PictureSlides</h1>
+				
+				<h2>How do I use it in a web page?</h2>
+				<h3>Include JavaScript files</h3>
+				<p>Start by including the latest version of <a href="http://code.google.com/p/jqueryjs/downloads/list">jQuery (Minified version suggested)</a>:</p>
+<pre class="brush: html">&lt;script type="text/javascript" src="js/jquery-1.3.2.min.js"&gt;&lt;/script&gt;</pre>
+
+				<p>Then, include the PictureSlides file:</p>
+<pre class="brush: html">&lt;script type="text/javascript" src="js/PictureSlides-jquery-2.0.js"&gt;&lt;/script&gt;</pre>
+				
+				<p>Then, within the web page or a separate JavaScript file, you can customize how PictureSlides should work and how it should be presented. You can also have any number of slideshows in the same page.</p>
+				
+				<h3>Create an HTML page</h3>
+				<p>Create a web page where you put all the HTML that you want to use. This is example HTML prepared for being used with PictureSlides. NOTE! Each slideshow <em>has</em> to be surrounded with an element with the class <code>picture-slides-container</code>.</p>
+<pre class="brush: html">&lt;div class="picture-slides-container"&gt;
+	&lt;div class="picture-slides-fade-container"&gt;
+		&lt;a class="picture-slides-image-link"&gt;&lt;img class="picture-slides-image" src="pictures/1.jpg" alt="This is picture 1" /&gt;&lt;/a&gt;
+	&lt;/div&gt;
+
+	&lt;div class="picture-slides-image-text"&gt;This is picture 1&lt;/div&gt;
+
+	&lt;div class="navigation-controls"&gt;
+		&lt;span class="picture-slides-previous-image"&gt;Previous&lt;/span&gt;
+		&lt;span class="picture-slides-image-counter"&gt;&lt;/span&gt;
+		&lt;span class="picture-slides-next-image"&gt;Next&lt;/span&gt;
+
+		&lt;span class="picture-slides-start-slideshow"&gt;Start slideshow&lt;/span&gt;
+		&lt;span class="picture-slides-stop-slideshow"&gt;Stop slideshow&lt;/span&gt;
+	&lt;/div&gt;
+
+	&lt;ul class="picture-slides-thumbnails"&gt;
+		&lt;li&gt;&lt;a href="pictures/1.jpg"&gt;&lt;img src="thumbnails/1.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="pictures/2.jpg"&gt;&lt;img src="thumbnails/2.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="pictures/3.jpg"&gt;&lt;img src="thumbnails/3.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="pictures/4.jpg"&gt;&lt;img src="thumbnails/4.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="pictures/5.jpg"&gt;&lt;img src="thumbnails/5.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="pictures/6.jpg"&gt;&lt;img src="thumbnails/6.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="pictures/7.jpg"&gt;&lt;img src="thumbnails/7.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="pictures/8.jpg"&gt;&lt;img src="thumbnails/8.jpg" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</pre>
+
+				<h3>Create JavaScript code</h3>
+				<p>Then, for each slideshow you want, generate a PictureSlides JavaScript block to create all the settings. For example:</p>
+<pre class="brush: js">&lt;script type="text/javascript"&gt;
+	jQuery.PictureSlides.set({
+		// Switches to decide what features to use
+		useFadingIn : true,
+		useFadingOut : true,
+		useFadeWhenNotSlideshow : true,
+		useFadeForSlideshow : true,
+		useDimBackgroundForSlideshow : true,
+		loopSlideshow : false,
+		usePreloading : true,
+		useAltAsTooltip : true,
+		useTextAsTooltip : false,
+
+		// Fading settings
+		fadeTime : 500, // Milliseconds	
+		timeForSlideInSlideshow : 2000, // Milliseconds
+
+		// At page load
+		startIndex : 1,	
+		startSlideShowFromBeginning : true,
+		startSlideshowAtLoad : false,
+		dimBackgroundAtLoad : false,
+
+		// Large images to use and thumbnail settings
+		images : [
+			{
+				image : "pictures/1.jpg", 
+				alt : "Picture 1",
+				text : "This is picture 1"
+			},
+			{                                  
+
+				image : "pictures/2.jpg", 
+				alt : "Picture 2",
+				text : "This is picture 2",
+				url : "http://robertnyman.com"
+			},
+			{                                  
+
+				image : "pictures/3.jpg", 
+				alt : "Picture 3",
+				text : "This is picture 3",
+				url : "http://456bereastreet.com"
+			} // NOTE! No comma after the last object
+		],
+		thumbnailActivationEvent : "click",
+
+		// Classes of HTML elements to use
+		mainImageClass : "picture-slides-image", // Mandatory
+		imageLinkClass : "picture-slides-image-link",
+		fadeContainerClass : "picture-slides-fade-container",
+		imageTextContainerClass : "picture-slides-image-text",
+		previousLinkClass : "picture-slides-previous-image",
+		nextLinkClass : "picture-slides-next-image",
+		imageCounterClass : "picture-slides-image-counter",
+		startSlideShowClass : "picture-slides-start-slideshow",
+		stopSlideShowClass : "picture-slides-stop-slideshow",
+		thumbnailContainerClass: "picture-slides-thumbnails",
+		dimBackgroundOverlayClass : "picture-slides-dim-overlay"
+	});
+&lt;/script&gt;</pre>
+				<p>
+					The most interesting part above is where you define what images should be used, what text they should have, and if they should link somewhere when being clicked:
+				</p>
+<pre class="brush: js">images : [
+	{
+		// Path to large image
+		image : "pictures/1.jpg",
+		// Alternative text for large image
+		alt : "Picture 1",
+		// Descriptive text of large image
+		text : "This is picture 1",
+		// Optional. URL to link large image to
+		url : "http://robertnyman.com"
+	},
+	{
+		image : "pictures/2.jpg",
+		alt : "Picture 2",
+		text : "This is picture 2",
+		url : "http://robertnyman.com"
+	},
+	{                                  
+
+		image : "pictures/3.jpg", 
+		alt : "Picture 3",
+		text : "This is picture 3",
+		url : "http://456bereastreet.com"
+	} // NOTE! No comma after the last object
+]</pre>
+				
+				<p>Most likely, you will want to dynamically generate the image code above on the server through ASP.NET or PHP. To do that, just create an array like above code (after the PictureSlides JavaScript file has been included):</p>
+				
+				<h2>Settings and parameters</h2>
+				<dl>
+					<dt><code>useFadingIn : true</code></dt>
+					<dd>If fading in should be used.</dd>
+						
+					<dt><code>useFadingOut : true</code></dt>
+					<dd>If fading out should be used.</dd>
+					
+					<dt><code>useFadeWhenNotSlideshow : true</code></dt>
+					<dd>If fading should be used when changing image and it is not during a slideshow.</dd>
+					
+					<dt><code>useFadeForSlideshow : true</code></dt>
+					<dd>If fading should be used during a slideshow.</dd>
+					
+					<dt><code>useDimBackgroundForSlideshow : true</code></dt>
+					<dd>If the background document should be dimmed out during a slideshow.</dd>
+					
+					<dt><code>loopSlideshow : true</code></dt>
+					<dd>If the slideshow should loop and start all over.</dd>
+					
+					<dt><code>usePreloading : true</code></dt>
+					<dd>If the large images should be preloaded, to get a smoother user experience. Lots of large images and using preloading will result in a larger server load.</dd>
+					
+					<dt><code>useAltAsTooltip : true</code></dt>
+					<dd>If respective image's alt text should also be used as its tooltip text.</dd>
+					
+					<dt><code>useTextAsTooltip : true</code></dt>
+					<dd>If respective image's description text should also be used as its tooltip text.</dd>
+					
+					<dt><code>fadeTime : 500</code></dt>
+					<dd>How long each slide's fade time is. Set in milliseconds, e.g. 1000 = 1 second.</dd>
+					
+					<dt><code>timeForSlideInSlideshow : 2000</code></dt>
+					<dd>How long each slide is shown in a slideshow. Set in milliseconds, e.g. 1000 = 1 second.</dd>
+					
+					
+					<dt><code>startIndex : 1</code></dt>
+					<dd>What image to start with. 1 = is the first image, and so on.</dd>
+					
+					<dt><code>startSlideShowFromBeginning : 1</code></dt>
+					<dd>If the slideshow should start from the first image, or the currently selected one.</dd>
+					
+					<dt><code>startSlideshowAtLoad : false</code></dt>
+					<dd>If the slideshow should start playing automatically as soon as the page has loaded.</dd>
+					
+					<dt><code>dimBackgroundAtLoad : false</code></dt>
+					<dd>If the background should be dimmed out as soon as the page has loaded.</dd>
+					
+					<dt><code>images : // Please see example code above</code></dt>
+					<dd>What images to use, what text they should have, and if they should link anywhere.</dd>
+					
+					<dt><code>thumbnailActivationEvent : "click"</code></dt>
+					<dd>What event on a thumbnail should change the large image to that one. E.g. "click", "mouseover".</dd>
+					
+					
+					
+					<dt><code>mainImageClass : "picture-slides-image"</code></dt>
+					<dd>The <code>class</code> of the HTML element which is the main image element.</dd>
+					
+					<dt><code>picture-slides-image-load-fail : "picture-slides-image-load-fail"</code></dt>
+					<dd>The <code>class</code> of the HTML element to display if the loading of the large image fails.</dd>
+					
+					<dt><code>imageLinkClass : "picture-slides-image-link"</code></dt>
+					<dd>The <code>class</code> of the HTML element which is the link around the main image element.</dd>
+					
+					<dt><code>fadeContainerClass : "picture-slides-fade-container"</code></dt>
+					<dd>The <code>class</code> of the HTML element containing the main image and text, and will fade in/out if enabled.</dd>
+					
+					<dt><code>imageTextContainerClass : "picture-slides-image-text"</code></dt>
+					<dd>The <code>class</code> of the HTML element containing the image text.</dd>
+					
+					<dt><code>previousLinkClass : "picture-slides-previous-image"</code></dt>
+					<dd>The <code>class</code> of the HTML element which is the previous image link.</dd>
+					
+					<dt><code>nextLinkClass : "picture-slides-next-image"</code></dt>
+					<dd>The <code>class</code> of the HTML element whcih is the next image link.</dd>
+					
+					<dt><code>imageCounterClass : "picture-slides-image-counter"</code></dt>
+					<dd>The <code>class</code> of the HTML element showing the image counter.</dd>
+					
+					<dt><code>startSlideShowClass : "picture-slides-start-slideshow"</code></dt>
+					<dd>The <code>class</code> of the HTML element which is the link to start the slideshow.</dd>
+					
+					<dt><code>stopSlideShowClass : "picture-slides-stop-slideshow"</code></dt>
+					<dd>The <code>class</code> of the HTML element which is the link to stop the slideshow.</dd>
+					
+					<dt><code>thumbnailContainerClass: "picture-slides-thumbnails"</code></dt>
+					<dd>The <code>class</code> of the HTML element containing all the thumbnail links and images.</dd>
+					
+					<dt><code>dimBackgroundOverlayClass : "picture-slides-dim-overlay"</code></dt>
+					<dd>The <code>class</code> of the HTML element which will be used to dim the background.</dd>
+				</dl>
+				
+				<h2>Class names applied in the script</h2>
+				<p>In general no class names are applied, except for these:</p>
+				<ul>
+					<li>The chosen thumbnail's parent link, which will get the class: <code>picture-slides-selected-thumbnail</code></li>
+					<li>The navigation links (Previous/Next) which will get the class name <code>picture-slides-disabled</code>, if you can't navigate more in that direction</li>
+					<li>The <code>picture-slides-container</code> will also get the class <code>picture-slides-dimmed-background</code> when the background is dimmed out</li>
+				</ul>
+			</div>
+			
+			<div id="navigation">
+				<h3>Downloads</h3>
+				<ul>
+					<li><a href="http://code.google.com/p/pictureslides/downloads/list">Download PictureSlides</a></li>
+					<li><a href="http://code.google.com/p/domassistant/downloads/list">Download DOMAssistant (Complete or Compressed version)</a></li>
+					<li><a href="http://code.google.com/p/jqueryjs/downloads/list">Download jQuery (Minified version suggested)</a></li>
+				</ul>
+				
+				<h3>Documentation</h3>
+				<ul>
+					<li><a href="index.htm">Introduction</a></li>
+					<li><a href="guidelines.htm">Guidelines &amp; compliance</a></li>
+					<li><a href="implementation.htm" class="selected">Implementation</a></li>
+				</ul>
+				
+				<h3>Demos</h3>
+				<ul>
+					<li><a href="demo-packages/gallery/index.html">Picture gallery</a></li>
+					<li><a href="demo-packages/slideshow-only/index.html">Slideshow only and autoplay</a></li>
+					<li><a href="demo-packages/large-image-with-navigation-links/index.html">Large image with navigation links</a></li>
+				</ul>
+				
+				<h3>Contact</h3>
+				<ul>
+					<li><a href="http://www.robertnyman.com/about">Contact the author</a></li>
+					<li><a href="http://code.google.com/p/pictureslides/issues/list">Report an issue</a></li>
+				</ul>
+			</div>		
+		</div>
+		
+		<div id="footer">
+			Created by Robert Nyman, <a href="http://www.robertnyman.com">http://www.robertnyman.com</a>
+		</div>
+		
+	</div>
+	
+	<script type="text/javascript" src="syntax-highlighter/scripts/shHTMLJavaScript.js"></script>
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+	</script>
+	
+	
+	<!-- Google Analytics code -->
+	<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		_uacct = "UA-56164-1";
+		urchinTracker();
+	</script>
+	
+	<!-- Start of StatCounter Code -->
+	<script type="text/javascript">
+	<!-- 
+	var sc_project=593937; 
+	var sc_partition=4; 
+	var sc_security="175a1fec"; 
+	//-->
+	</script>
+		
+	<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c5.statcounter.com/counter.php?sc_project=593937&amp;java=0&amp;security=175a1fec" alt="free geoip" /></a></div></noscript>
+	<!-- End of StatCounter Code -->
+	
+	
+</body>
+</html>

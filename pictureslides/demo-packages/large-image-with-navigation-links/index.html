@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/DTD/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>PictureSlides demo</title>
+	<link rel="stylesheet" href="css/picture-slides.css" type="text/css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/PictureSlides-jquery-2.0.js"></script>
+	<script type="text/javascript">
+		jQuery.PictureSlides.set({
+			// Switches to decide what features to use
+			useFadingIn : true,
+			useFadingOut : true,
+			useFadeWhenNotSlideshow : true,
+			useFadeForSlideshow : true,
+			useDimBackgroundForSlideshow : true,
+			loopSlideshow : false,
+			usePreloading : true,
+			useAltAsTooltip : true,
+			useTextAsTooltip : false,
+			
+			// Fading settings
+			fadeTime : 500, // Milliseconds	
+			timeForSlideInSlideshow : 2000, // Milliseconds
+
+			// At page load
+			startIndex : 1,	
+			startSlideShowFromBeginning : true,
+			startSlideshowAtLoad : false,
+			dimBackgroundAtLoad : false,
+
+			// Large images to use and thumbnail settings
+			images : [
+				{
+					image : "pictures/1.jpg", 
+					alt : "Picture 1",
+					text : "This is picture 1"
+				},
+				{                                  
+					
+					image : "pictures/2.jpg", 
+					alt : "Picture 2",
+					text : "This is picture 2"
+				},
+				{                                  
+					
+					image : "pictures/3.jpg", 
+					alt : "Picture 3",
+					text : "This is picture 3"
+				},
+				{                                  
+					
+					image : "pictures/4.jpg", 
+					alt : "Picture 4",
+					text : "This is picture 4"
+				},
+				{                                  
+					
+					image : "pictures/5.jpg", 
+					alt : "Picture 5",
+					text : "This is picture 5"
+				},
+				{                                  
+					
+					image : "pictures/6.jpg", 
+					alt : "Picture 6",
+					text : "This is picture 6"
+				},
+				{                                  
+					
+					image : "pictures/7.jpg", 
+					alt : "Picture 7",
+					text : "This is picture 7"
+				},
+				{                                  
+					
+					image : "pictures/8.jpg", 
+					alt : "Picture 8",
+					text : "This is picture 8"
+				}
+			],
+			thumbnailActivationEvent : "click",
+
+			// Classes of HTML elements to use
+			mainImageClass : "picture-slides-image", // Mandatory
+			fadeContainerClass : "picture-slides-fade-container",
+			previousLinkClass : "picture-slides-previous-image",
+			nextLinkClass : "picture-slides-next-image",
+			thumbnailContainerClass: "picture-slides-thumbnails",
+			dimBackgroundOverlayClass : "picture-slides-dim-overlay"
+		});
+	</script>
+</head>
+
+<body>
+	
+	<div id="container">
+
+		<h1>PictureSlides</h1>
+		<h2>Large image with navigation links</h2>
+		<p>
+			<a href="http://pictureslides.googlecode.com/files/picture-slides-large-image-with-navigation-links-demo.zip">Download this demo</a>
+		</p>
+		
+		<div class="picture-slides-container">
+			<div class="picture-slides-fade-container">
+				<img id="picture-slides-image" class="picture-slides-image" src="pictures/1.jpg" alt="This is picture 1" />				
+			</div>
+			<ul id="navigation-controls" class="navigation-controls">
+				<li><a href="index.html" class="picture-slides-previous-image">Previous</a></li>
+				<li><a href="index.html" class="picture-slides-next-image">Next</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	
+</body>
+</html>

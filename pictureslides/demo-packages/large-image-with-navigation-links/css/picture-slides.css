@@ -1,0 +1,102 @@
+/* Fonts */
+html{
+	font-size: 100%;	
+}
+
+body{
+	font: 0.75em/1em Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #000;
+	background: #fff;
+}
+
+input, select, textarea{
+	font-size: 100%;
+}
+
+h1{
+	font: 3em/1em Arial, Helvetica, sans-serif;
+}
+
+h2{
+	font: 1.5em/1.3em Arial, Helvetica, sans-serif;	
+}
+
+h3{
+	font: bold 1.2em/1em Arial, Helvetica, sans-serif;	
+}
+
+/* Tag-specific */
+html, body, form, fieldset, li, h1, h2, h3, h4, h5, h6, p, ul, dl, dt, dd, input{
+	margin: 0;
+	padding: 0;
+}
+h1{
+	display: block;
+	background: #000 url(../images/arrow.gif) no-repeat 0px 10px;
+	color:#fff;
+	padding: 5px 5px 5px 45px;
+}
+
+h2{
+	margin-bottom: 1em;
+}
+
+dl, p, ul, ol{
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+a{
+	color: #FF2286;
+}
+
+dt{
+	font-weight: bold;
+}
+
+body{	
+	background: url(../images/bg.gif);
+}
+
+form label{
+	cursor: pointer;
+}
+
+img{
+	border: none;
+}
+
+input{
+	vertical-align: middle;
+}
+
+/* General */
+div#container{
+	float: right;
+	width: 643px;
+	margin: 2em 3em;
+	background: #fff;
+}
+
+.picture-slides-fade-container {
+	float: left;
+}
+
+.picture-slides-disabled {
+	color: #eee;
+}
+
+ul#navigation-controls{
+	float: left;
+	list-style: none;
+	margin-left: 1em;
+}
+
+ul#navigation-controls li{
+	line-height: 1.5em;
+	margin-right: 0.5em;
+}
+
+li.slideshow-item{
+	margin-left: 3em;
+}
