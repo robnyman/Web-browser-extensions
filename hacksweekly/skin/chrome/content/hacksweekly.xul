@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://hacksweekly/skin/hacksweekly.css" type="text/css"?> 
+<!DOCTYPE hacksweekly SYSTEM "chrome://hacksweekly/locale/hacksweekly.dtd">
+<overlay id="sample" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script src="hacksweekly.js" />
+
+    <toolbarpalette id="BrowserToolbarPalette">
+        <toolbarbutton id="hacksweekly-button" label="Add to Hacks Weekly" tooltiptext="Add to Hacks Weekly" src="chrome://hacksweekly/skin/status-bar.png" oncommand="hacksweeklyWrapper.onStatusbarButtonCommand(event);"/>
+    </toolbarpalette>
+
+
+    <statusbar id="status-bar">
+        <statusbarpanel id="hacksweekly-status-bar" class="statusbarpanel-iconic" src="chrome://hacksweekly/skin/status-bar.png" tooltiptext="Add to Hacks Weekly" onclick="hacksweeklyWrapper.onStatusbarButtonCommand(event);"/>
+    </statusbar>
+</overlay>

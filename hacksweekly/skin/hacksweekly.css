@@ -1,0 +1,9 @@
+/* XUL styles */
+#hacksweekly-button {
+	list-style-image: url("chrome://hacksweekly/skin/toolbar.png");
+}
+
+#hacksweekly-status-bar {
+	width: 16px;
+	margin: 0 5px;
+}

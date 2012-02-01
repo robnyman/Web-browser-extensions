@@ -1,0 +1,10 @@
+content     hacksweekly    chrome/content/
+content     hacksweekly    chrome/content/ contentaccessible=yes
+
+
+overlay chrome://browser/content/browser.xul chrome://hacksweekly/content/hacksweekly.xul
+
+locale	hacksweekly	en-US	locale/en-US/
+
+skin	hacksweekly	classic/1.0	skin/
+style	chrome://global/content/customizeToolbar.xul	chrome://hacksweekly/skin/hacksweekly.css
